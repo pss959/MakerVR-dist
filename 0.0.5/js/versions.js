@@ -14,6 +14,10 @@ var versions = [
         "aliases": [],
     },
     {
+        "version": "0.0.4",
+        "aliases": [],
+    },
+    {
         "version": "0.0.5",
         "aliases": ['latest'],
     },
