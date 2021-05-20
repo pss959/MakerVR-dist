@@ -121,6 +121,14 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#makervr-release-notes">MakerVR Release Notes</a></li>
+            <li class="second-level"><a href="#release-010-april-8-2021">Release 0.1.0 (April 8, 2021)</a></li>
+                
+            <li class="second-level"><a href="#release-005-november-09-2020">Release 0.0.5 (November 09, 2020)</a></li>
+                
+            <li class="second-level"><a href="#release-004-september-26-2020">Release 0.0.4 (September 26, 2020)</a></li>
+                
+            <li class="second-level"><a href="#release-003-august-9-2020">Release 0.0.3 (August 9, 2020)</a></li>
+                
             <li class="second-level"><a href="#release-002-june-21-2020">Release 0.0.2 (June 21, 2020)</a></li>
                 
             <li class="second-level"><a href="#release-001-june-17-2020">Release 0.0.1 (June 17, 2020)</a></li>
@@ -130,6 +138,173 @@
         <div class="col-md-9" role="main">
 
 <h1 id="makervr-release-notes">MakerVR Release Notes</h1>
+<h2 id="release-010-april-8-2021">Release 0.1.0 (April 8, 2021)</h2>
+<ul>
+<li>
+<p>The mouse scroll wheel now scales the stage.</p>
+</li>
+<li>
+<p>Added a file format dropdown for model export (text vs. binary STL).</p>
+</li>
+<li>
+<p>Added Settings Panel dropdowns to convert to and from alternate units for
+  export and import.</p>
+</li>
+<li>
+<p>Added the ability to show the build volume for a 3D printer. There is an
+  entry in the Settings Panel for the size and a new icon to toggle display of
+  the volume on and off. When the volume is visible, parts of models outside
+  the volume are rendered using a special color. The stage grid also resizes
+  when the build volume size is changed.</p>
+</li>
+<li>
+<p>Radial menus are now available to use when in non-VR and hybrid modes.</p>
+</li>
+<li>
+<p>The Scale Tool now allows scaling in 1, 2, or 3 dimensions.</p>
+</li>
+<li>
+<p>The scene name displayed in the TreePanel now indicates whether the scene has
+  been modified.</p>
+</li>
+<li>
+<p>Models display tooltips containing their names.</p>
+</li>
+<li>
+<p>The Precision display is simplified to just show the current precision as
+  text, and now has buttons to increase or decrease precision.</p>
+</li>
+<li>
+<p>Reimplemented device and event handling to provide more consistent behavior.</p>
+</li>
+<li>
+<p>Completely revised and improved much of the application appearance:
+  materials, colors, sizes, feedback.</p>
+</li>
+<li>
+<p>Revised the GUI implementation. All GUI panels use the same infrastructure,
+  allowing optional moving and resizing. Built new custom GUI elements that
+  respond to resizing better, handle keyboard navigation better, and provide an
+  easier and more consistent VR interface.</p>
+</li>
+<li>
+<p>Implemented better synchronization between the keyboard and the VRKeys
+  virtual keyboard for text input.</p>
+</li>
+<li>
+<p>Added a grip bar to help show that the virtual keyboard can be dragged.</p>
+</li>
+<li>
+<p>Fixed some issues with triangulating complex polygons, such as text.</p>
+</li>
+</ul>
+<h2 id="release-005-november-09-2020">Release 0.0.5 (November 09, 2020)</h2>
+<ul>
+<li>
+<p>Removed the Mac version from the Release 0.0.4 distribution. Unity enables
+  Metal by default, but Unity/Metal does not support geometry shaders, so the
+  MakerVR custom faceted shader does not work. Disabling Metal caused all kinds
+  of horrible crashes. We will have to wait for something to be fixed.</p>
+</li>
+<li>
+<p>Added 3D text via the Text Tool.</p>
+</li>
+<li>
+<p>Now using CGAL for face triangulation. This fixed a lot of problems with
+  complex concave polygons.</p>
+</li>
+<li>
+<p>Invalid meshes are now indicated with a bright red color. This allows users
+  to tell when the Profile Tool is causing problems. When an invalid mesh is
+  selected, several different tools are now disabled.</p>
+</li>
+<li>
+<p>Added a setting to the Settings Panel for tooltip delay, in seconds. Setting
+  this to 0 disables tooltips completely.</p>
+</li>
+<li>
+<p>Exporting as STL now operates on the current selection rather than all
+  existing top-level models.</p>
+</li>
+<li>
+<p>Many other bug fixes, especially those involving geometric inconsistencies.</p>
+</li>
+</ul>
+<h2 id="release-004-september-26-2020">Release 0.0.4 (September 26, 2020)</h2>
+<ul>
+<li>
+<p>Added a Mac version. (Thanks to Bob Brown for the loaner MacBook.)</p>
+</li>
+<li>
+<p>Added the Info Panel, along with new tool icons to open the Info Panel and
+  the Help Panel.</p>
+</li>
+<li>
+<p>Added the Clip Tool.</p>
+</li>
+<li>
+<p>Added a slider to the Profile Tool to allow the maximum edge angle to be
+  specified; edges forming smaller angles will not be profiled. Fixed a lot of
+  Profile Tool math.</p>
+</li>
+<li>
+<p>Fixed a bug where TreePanel interaction could occur even when it was occluded.</p>
+</li>
+<li>
+<p>All duplicate vertices in meshes should now be merged properly.</p>
+</li>
+<li>
+<p>Changed the way parent models are handled relative to their children; the
+  parent is always defined initially in axis-aligned Cartesian coordinates
+  rather than sometimes trying to copy the child's rotation.</p>
+</li>
+</ul>
+<h2 id="release-003-august-9-2020">Release 0.0.3 (August 9, 2020)</h2>
+<ul>
+<li>
+<p>Added HelpPanel with keyboard shortcuts and button on SessionPanel.</p>
+</li>
+<li>
+<p>Session state (settings of all toggles) is now saved with MVR files. Older
+  MVR files will still be able to be loaded, but will reset the state to
+  default settings. InspectSelection is no longer considered a toggle, since it
+  is really transient and cannot persist across sessions.</p>
+</li>
+<li>
+<p>Fixed a bug where STL output of models did not transform them correctly.</p>
+</li>
+<li>
+<p>Improved size and placement of tooltips.</p>
+</li>
+<li>
+<p>Implemented alt-dragging for point and edge targets to drag over bounds of
+  intersected model, snapping to edges and centers. Also added a snapping
+  feedback indicator to the point target.</p>
+</li>
+<li>
+<p>Sessions can be saved after changing any of the toggles.</p>
+</li>
+<li>
+<p>Added a button for creating a convex hull of one or more models.</p>
+</li>
+<li>
+<p>Added a Profile Tool to change the profiles of all edges of a model to create
+  bevels, chamfers, etc.</p>
+</li>
+<li>
+<p>The Color Tool now responds to clicks in the color ring in addition to drags.</p>
+</li>
+<li>
+<p>Fixed some bugs in STL import.</p>
+</li>
+<li>
+<p>Fixed some transformation bugs in the Inspector.</p>
+</li>
+<li>
+<p>Added versioning and version switching to documentation; retroactively added
+  to previous versions.</p>
+</li>
+</ul>
 <h2 id="release-002-june-21-2020">Release 0.0.2 (June 21, 2020)</h2>
 <ul>
 <li>
