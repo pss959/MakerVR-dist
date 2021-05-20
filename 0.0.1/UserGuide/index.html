@@ -134,12 +134,12 @@
                 <li class="third-level"><a href="#feedback">Feedback</a></li>
                 <li class="third-level"><a href="#targets">Targets</a></li>
                 <li class="third-level"><a href="#selection">Selection</a></li>
-                <li class="third-level"><a href="#combining-models">Combining Models</a></li>
+                <li class="third-level"><a href="#csg">CSG</a></li>
             <li class="second-level"><a href="#tools">Tools</a></li>
                 
                 <li class="third-level"><a href="#model-creation-shelf">Model Creation Shelf</a></li>
                 <li class="third-level"><a href="#model-editing-shelves">Model Editing Shelves</a></li>
-                <li class="third-level"><a href="#combining-shelf">Combining Shelf</a></li>
+                <li class="third-level"><a href="#csg-shelf">CSG Shelf</a></li>
                 <li class="third-level"><a href="#basics-shelf">Basics Shelf</a></li>
                 <li class="third-level"><a href="#layout-shelf">Layout Shelf</a></li>
                 <li class="third-level"><a href="#file-shelf">File Shelf</a></li>
@@ -155,12 +155,9 @@
                 
                 <li class="third-level"><a href="#session-panel">Session Panel</a></li>
                 <li class="third-level"><a href="#settings-panel">Settings Panel</a></li>
-                <li class="third-level"><a href="#info-panel">Info Panel</a></li>
-                <li class="third-level"><a href="#help-panel">Help Panel</a></li>
                 <li class="third-level"><a href="#radial-menu-editor-panel">Radial Menu Editor Panel</a></li>
                 <li class="third-level"><a href="#action-panel">Action Panel</a></li>
                 <li class="third-level"><a href="#file-browser">File Browser</a></li>
-                <li class="third-level"><a href="#text-panel">Text Panel</a></li>
             <li class="second-level"><a href="#quirks">Quirks</a></li>
                 
                 <li class="third-level"><a href="#copy-paste-undo-redo">Copy, Paste, Undo, Redo</a></li>
@@ -242,9 +239,6 @@ standard VR controllers supported by
 </ul>
 <p>You can configure the radial menu for each hand in the <a href="#settings-panel">Settings
   Panel</a>.</p>
-<p>Any panel that uses a dropdown list of options (such as the [Text
-Panel][#text-panel] for font family or style) allows scrolling of the list
-using the trackpad up/down buttons on a controller.</p>
 <p>Any use of the word <em>"drag"</em> in this document refers by default to using the
 mouse or pinch action to grab some interactive widget and yank it around. A
 drag activated with the grip button held down will be called out as a <em>"grip
@@ -275,9 +269,6 @@ feel like it.</p>
 Panel</a>. It offers you the chance to continue the current
 session (if there is one), load a different session, or start a new session.
 The location of saved sessions is customizable in the <a href="#settings-panel">Settings Panel</a>.</p>
-<p>The current state of various settings (such as whether <a href="#targets">targets</a> and
-<a href="#show-edges-toggle-tool">edges</a> are visible) is saved along with the session
-and is restored when the session is loaded.</p>
 <h2 id="the-work-area">The Work Area</h2>
 <p><img alt="The MakerVR Work Area" src="../img/WorkArea.jpg" title="The (empty) MakerVR work area" /></p>
 <p>The work area in MakerVR is based conceptually on a virtual workshop. You may
@@ -297,7 +288,7 @@ notice the following elements:</p>
   view, unless you are in VR mode (where the view always aligns with your head,
   of course).</li>
 <li>Several shelves with 3D icons on them. These represent various
-  <a href="#Tools">tools</a> that can interact with models.</li>
+  <a href="#Tools">tools</a> can interact with.</li>
 <li>A blue bar to the right of the exit sign that shows the current precision.
   See <a href="#precision">Precision</a> for details.</li>
 <li>A framed panel that has a bunch of stuff on it. This is the <em>tree panel</em> that
@@ -319,24 +310,10 @@ Everything is sized roughly for typical 3D printer build volumes.</p>
 every 5 centimeters. The grid grows or shrinks with the stage so that you can
 always tell absolute sizes. The X and Y axes are colored red and green for
 reference.</p>
-<h4 id="invalid-mesh-color">Invalid Mesh Color</h4>
-<p><img alt="" src="../img/InvalidMeshColor.jpg" style="height:100px;float:right;" /></p>
-<p>Reasonable colors are chosen automatically for models in the scene. The <a href="#color-tool">Color
-Tool</a> allows you to change them for aesthetic purposes only, since
-the colors have no effect on the 3D-printed model. One very special red color
-is used for models that have invalid meshes, as shown here. When an invalid
-mesh is created (usually by the <a href="#profile-tool">Profile Tool</a>), it will retain
-this color until the problem is fixed. Changes made with the Color Tool will
-still take effect, but you will not be able to see them while the model is
-invalid. Also, some tools (such as CSG, Clip, and Hull Tools) will be disabled
-when an invalid model is selected.</p>
 <h3 id="tooltips">Tooltips</h3>
 <p>Anything in the application that is interactive responds to hovering with the
-mouse or laser pointer by highlighting in some way. For many items, if you
-hover long enough, a tooltip should appear with information about the
-interaction.</p>
-<p>The delay for showing tooltips is a setting that can be edited in the <a href="#settings-panel">Settings
-Panel</a>. Setting the delay to 0 turns off tooltips completely.</p>
+mouse or laser pointer by highlighting in some way. If you hover long enough, a
+tooltip should appear with information about the interaction.</p>
 <h3 id="precision">Precision</h3>
 <p><img alt="" src="../img/PrecisionIndicator.jpg" style="height:100px;float:right;" title="The precision indicator" /></p>
 <p>Manual interaction is usually imprecise, so MakerVR provides several features
@@ -389,65 +366,35 @@ displayed in the target color.</p>
 <h3 id="targets">Targets</h3>
 <p>Interactive placement can often be tedious, so MakerVR offers some shortcuts
 for some operations using <em>targets</em>. There are two such targets available in
-the application, the <em>point target</em> and <em>edge target</em>.</p>
-<p>To activate or deactivate a target, click on the corresponding toggle tool. A
-target becomes visible when activated, appearing initially in the center of the
-stage. If it is obscured by models, you can use the <a href="#tree-panel">Tree Panel</a>
-to hide those models temporarily.</p>
-<p>Targets can be dragged with the mouse or pinch action to other locations, as
-described below. When dragging on the stage, the targets snap to grid locations
-based on the current <a href="#precision">precision</a>.</p>
-<h4 id="point-target">Point Target</h4>
-<p><img alt="" src="../img/PointTarget.jpg" style="height:200px;float:right;" title="The point target" /></p>
-<p>The point target indicates a position (shown by the sphere at the base) and
-orientation (shown by the arrow) in the scene. To activate or deactivate the
-point target, click on the <a href="#point-target-toggle-tool">Point Target Toggle
-Tool</a>.</p>
-<p>When the point target is active, dragging during a position-based operation
-(such as translation) snaps to the target's position in all affected
-dimensions. When snapping occurs during one of these operations, the
-<a href="#feedback">feedback</a> changes to the color of the target.</p>
-<p>The point target can also be used for instantly moving a model, and it has
-other features that let it be used be used for radial layout; see the <a href="#radial-layout-tool">Radial
-Layout Tool</a> for details.</p>
-<p>The point target can be dragged to any point on a model or on the stage. When
-dragging on a model, the target location will snap to vertices of the model's
-triangular mesh when close enough to them, based on the current
-<a href="#precision">precision</a>. When this occurs, a <em>snap indicator</em> (sphere at the
-tip of the target's arrow) will appear.</p>
-<p><a href="#alternate-input-state">Alt-dragging</a> the point target on a model uses the
-rectangular bounds of the model instead of its mesh. The target will snap to
-the minimum, maximum, and center values of the bounds in each dimension. The
-snap indicator sphere will appear when any snapping occurs, and is color-coded
-by <a href="#coordinate-system-colors-and-units">dimension</a>. If snapping occurs in two
-dimensions, the color will be the sum of the two dimensions' color. For
-example, if alt-dragging the point target on the front (-Y) face of a model's
-bounds, the indicator will be red (X) when snapping to the left edge, center,
-or right edge of the face. It will be blue (Z) when snapping to the bottom
-edge, center, or top edge of the face. It will be magenta (red + blue) when
-snapping to both at the same time. You can use this feature to more easily
-attach the point target to important points on objects with asymmetric meshes.</p>
-<h4 id="edge-target">Edge Target</h4>
-<p><img alt="" src="../img/EdgeTarget.jpg" style="height:200px;float:right;" title="The edge target" /></p>
-<p>The edge target indicates a length and orientation in the scene.  To activate
-or deactivate the edge target, click on the <a href="#edge-target-toggle-tool">Edge Target Toggle
-Tool</a>.</p>
-<p>When the edge target is active, dragging during a size-based operation (such as
-scaling a model or changing a cylinder or torus diameter) snaps to the target
-length. When snapping occurs during one of these operations, the
-<a href="#feedback">feedback</a> changes to the color of the target.</p>
-<p>The edge target can also be used for non-drag linear layout. See the <a href="#linear-layout-tool">Linear
-Layout Tool</a> for details.</p>
-<p>When dragged over a model, the edge target snaps to the nearest edge of that
-model's mesh. To see model edges more clearly, you can use the <a href="#show-edges-toggle-tool">Show Edges
-Toggle Tool</a>. If the edge target is dragged from a
-model to the stage, it retains the length of the last edge it snapped
-to. Clicking on the edge target reverses its direction, which is useful when
-using the <a href="#linear-layout-tool">Linear Layout Tool</a>.</p>
-<p><a href="#alternate-input-state">Alt-dragging</a> the edge target on a model uses the
-rectangular bounds of the model instead of its mesh; the target will snap to
-the nearest edge of the bounds. You can use this feature to set the edge target
-length to any dimension of a model.</p>
+the application:</p>
+<p><img alt="" src="../img/EdgeTarget.jpg" style="height:200px;float:right;margin:2px;" title="The edge target" />
+<img alt="" src="../img/PointTarget.jpg" style="height:200px;float:right;margin:2px;" title="The point target" /></p>
+<ul>
+<li>The <em>point target</em> indicates a position and orientation in the scene. It can
+  be attached to any point on a model or the stage.</li>
+<li>The <em>edge target</em> indicates a length and orientation in the scene. It can be
+  attached to the edge of any model.</li>
+</ul>
+<p>The targets are activated or deactivated by toggling the <a href="#point-target-toggle-tool">Point Target Toggle
+Tool</a> or <a href="#edge-target-toggle-tool">Edge Target Toggle
+Tool</a>. A target appears initially in the center of
+the stage. (If it is obscured by models, you can use the <a href="#tree-panel">Tree
+Panel</a> to hide them temporarily.  They can then be dragged with
+the mouse or pinch action to other locations. The point target can be dragged
+to any point on a model or on the stage. The edge target can be dragged on any
+model; it snaps to the nearest edge. When dragging on the stage, the targets
+snap to grid locations based on the current <a href="#precision">precision</a>. If the
+edge target is dragged from a model to the stage, it retains the length of the
+last edge it snapped to.</p>
+<p>When the point target is active, dragging during a position-based
+operation (such as translation) snaps to the target's position in all affected
+dimensions. Similarly, when the edge target is active, dragging during a
+size-based operation (such as scaling a model or changing a cylinder diameter)
+snaps to the target length. When any snapping occurs, the <a href="#feedback">feedback</a>
+changes to the color of the target.</p>
+<p>The targets may also be used for non-drag layout operations. See the <a href="#linear-layout-tool">Linear
+Layout Tool</a> and <a href="#radial-layout-tool">Radial Layout Tool</a>
+for details.</p>
 <h3 id="selection">Selection</h3>
 <p>Some of the <a href="#Tools">tools</a> operate on the currently selected model or models.
 To select a model, click on it with the mouse or pinch action. The current
@@ -457,9 +404,9 @@ tool will be attached.</p>
 them. Alt-clicking an unselected model adds it as a selection, while
 alt-clicking a selected model deselects it.</p>
 <p>Models that are composed of other models generally hide those child models. For
-example, <a href="#combining-models">combined models</a> hide their constituent parts. You
-can make the child models visible by selecting them, using either the <a href="#tree-panel">Tree
-Panel</a> or the following <a href="../CheatSheet/">keyboard shortcuts</a>:</p>
+example, <a href="csg">CSG</a> models hide their constituent parts. You can make the child
+models visible by selecting them, using either the <a href="#tree-panel">Tree Panel</a> or
+the following <a href="../CheatSheet/">keyboard shortcuts</a>:</p>
 <ul>
 <li><code>Ctrl-DownArrow</code> selects the first child of a composite model.</li>
 <li><code>Ctrl-LeftArrow</code> selects the previous sibling of a child or a top-level
@@ -480,12 +427,9 @@ selection. All secondary selections are indicated with a passive blue wireframe
 box. Some tools treat the primary and secondary selections differently.</p>
 <p>The <a href="#tree-panel">Tree Panel</a> can also be used to see and change the current
 selection.</p>
-<h3 id="combining-models">Combining Models</h3>
-<p>One of the main features of MakerVR is the ability to create new models by
-combining models.</p>
-<h4 id="csg">CSG</h4>
-<p>You can apply any of the three <em>constructive solid geometry (CSG)</em> operations
-to two or more models:</p>
+<h3 id="csg">CSG</h3>
+<p>One of the main features of MakerVR is the ability to apply <em>constructive solid
+geometry (CSG)</em> operations to models. There are three main CSG operators:</p>
 <ul>
 <li><em>Union</em> adds all of the models together.</li>
 <li><em>Intersection</em> uses the intersection of all selected models.</li>
@@ -500,29 +444,6 @@ to two or more models:</p>
 <p>These images show the original operand models, a box and a cylinder, and the
 resulting CSG union, intersection, and difference (cylinder subtracted from the
 box).</p>
-<p>Note that the <a href="#clip-tool">Clip Tool</a> may also be helpful for simpler cases of
-geometric editing.</p>
-<h4 id="convex-hull">Convex Hull</h4>
-<p><img alt="" src="../img/HullCapsule.jpg" style="height:100px;float:right;margin:2px;" />
-<img alt="" src="../img/HullSpheres.jpg" style="height:100px;float:right;margin:2px;" /></p>
-<p>Another way to combine models is the <em>convex hull</em> operation, which creates a
-new model from the <a href="https://en.wikipedia.org/wiki/Convex_hull">3D convex hull</a>
-of all selected models. This can be used to easily create different shapes. For
-example, here is an easy way to create a capsule by applying the hull operation
-to two spheres.</p>
-<p><img alt="" src="../img/HullDisk.jpg" style="height:100px;float:right;margin:2px;" />
-<img alt="" src="../img/HullTorus.jpg" style="height:100px;float:right;margin:2px;" /></p>
-<p>The hull operation also can be useful to apply to a single model, if the model
-is not already convex. Here's an example of creating a rounded disk as the hull
-of a torus.</p>
-<h4 id="some-patience-required">Some Patience Required</h4>
-<p>MakerVR uses the <a href="https://www.cgal.org/">CGAL library</a> to compute the
-combinations of objects. Even though this library is very powerful, robust, and
-well-optimized, it can still take some time to compute the results in complex
-cases. This work is performed in a separate thread so that the application is
-not frozen while it happens. While the computation is active, the combined
-model may be displayed as a 3D hourglass and the mouse cursor (visible when not
-in VR mode) will also be an hourglass.</p>
 <h2 id="tools">Tools</h2>
 <p>Finally! We get to the actual tools. As mentioned <a href="#the-work-area">previously</a>,
 the tools are represented by 3D icons organized into shelves in the work area.</p>
@@ -547,80 +468,31 @@ trackpad).</p>
 icons for the primitive objects that can be created: <em>box</em>, <em>cylinder</em>,
 <em>sphere</em>, and <em>torus</em>. Clicking on any of these icons creates a new instance of
 the corresponding shape, which drops in from above.</p>
-<p>The fifth icon (capital 'T') creates extruded 3D text. Clicking this brings up
-the <a href="#text-panel">Text Panel</a> to specify the text. If a single text model is
-selected, the Text Panel will be used to modify that model.</p>
-<p>The right-most icon is used to import a model from a file. Right now the only
-supported format is STL (text or binary), which is the standard for most 3D
-printer software.  Clicking this icon opens a <a href="#file-browser-panel">File Browser
-Panel</a> that lets you choose an STL model. The default
-directory for this panel can be changed in the <a href="#settings-panel">Settings
-Panel</a>. Note that an STL file must define a closed
-(watertight) 3D model for it to be imported successfully.  If an imported model
-is selected and you click on the Import Model icon, it asks if you want to
-re-import the model. This can be useful when you are using an external program
-to edit the model and want to update it inside MakerVR.</p>
-<p>Note that if the <a href="#point-target">point target</a> is active (visible), any new
-model will be placed with its bottom center point at the base of the point
-target, with the model's "up" direction aligned with the point target's
-direction arrow.</p>
+<p>The fifth icon is used to import a model from a file. Right now the only
+supported format is STL, which is the standard for most 3D printer software.
+Clicking this icon opens a <a href="#file-browser-panel">File Browser Panel</a> that lets
+you choose an STL model. The default directory for this panel can be changed in
+the <a href="#settings-panel">Settings Panel</a>.</p>
+<p>If an imported model is selected and you click on the Import Model icon, it
+asks if you want to re-import the model. This can be useful when you are using
+an external program to edit the model and want to update it inside MakerVR.</p>
+<p>Note that if the <a href="#targets">point target</a> is active (visible), the new model
+will be placed with its bottom center point at the base of the point target,
+with the model's "up" direction aligned with the point target's direction
+arrow.</p>
 <h3 id="model-editing-shelves">Model Editing Shelves</h3>
 <p>The two shelves above the <a href="#model-creation-shelf">Model Creation Shelf</a> contain
 the model editing Tools. These are the main interactive gizmos that let you
 modify different aspects of models.</p>
 <hr />
-<h4 id="clip-tool">Clip Tool</h4>
-<p><img alt="" src="../img/ClipTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
-<p>The Clip Tool allows you to remove parts of models with one or more clipping
-planes. This tool has three interactive parts:</p>
-<p><img alt="" src="../img/ClipToolInactive.jpg" style="height:140px;float:right;" /></p>
-<ul>
-<li>A translucent quadrilateral representing the clipping plane. Clicking this
-  quadrilateral activates the tool to clip the selected model(s).</li>
-<li>An arrow indicating the normal to the clipping plane. The part of the
-  selected model(s) on the side of the plane with the normal is what will be
-  clipped away when the plane is clicked. Dragging the arrow lets you
-  reposition the plane along the normal.</li>
-<li>A translucent sphere that lets you change the orientation of the clipping
-  plane.</li>
-</ul>
-<p><img alt="" src="../img/ClipToolClipped.jpg" style="height:140px;float:right;" /></p>
-<p>Clipping a model for the first time replaces it with a new, clipped version of
-the model. Additional clipping planes can be applied to the same clipped
-model. When the Clip Tool is attached to a clipped model, it aligns itself with
-the most recent clipping plane applied to that model.</p>
-<p>Translating the plane by dragging the arrow is limited by the extents of the
-primary model; it will not let you move the plane completely off this model.
-The plane will snap to the <a href="#point-target">point target location</a> if the target
-is active or to the center of the primary selection. The plane will change
-color to the target color when snapped to either point.
-<a href="#alternate-input-state">Alt-dragging</a> the arrow deactivates any snapping.</p>
-<p>When rotating the plane by dragging the sphere, the plane normal will snap to
-the <a href="#point-target">point target direction</a> if the target is active or to any
-of the principal axes. If the <a href="#axis-aligned-toggle-tool">Axis-Aligned Toggle
-Tool</a> is active, the principal axes of the stage are
-used; otherwise, the local axes of the primary model are used. The plane will
-change color when snapped to either the target color or the <a href="#coordinate-system-colors-and-units">color
-corresponding to a principal axis</a>.
-<a href="#alternate-input-state">Alt-dragging</a> the sphere deactivates any snapping.</p>
-<p>When interacting (either translating or rotating), all selected objects will be
-clipped in real time to show what will happen when the plane is clicked. The
-real-time clipping stops when interaction ends.</p>
-<p>Grip-dragging works for both translation and rotation. If the controller is
-oriented so that the <a href="#interaction">hover guide</a> attached to the controller is
-close to parallel to the plane normal arrow, grip-dragging will translate the
-plane along the normal. Otherwise, grip-dragging will rotate the plane.
-Snapping occurs as above unless <a href="#alternate-input-state">alt-dragging</a>.</p>
-<hr />
 <h4 id="color-tool">Color Tool</h4>
 <p><img alt="" src="../img/ColorTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>The Color Tool edits the color of all selected models. The disc in the center
 of the tool shows the current color of the primary selection, as does the small
-marker in the outer ring. Clicking or dragging anywhere in the ring moves the
-marker and changes the color of all selected models. Grip-dragging works as
-well; the relative position of the controller is used to move the marker around
-the ring.</p>
-<p>Colors have no real effect on the 3D-printed model, but they can be used to
+marker in the outer ring. Dragging anywhere in the ring moves the marker and
+changes the color of all selected models. Grip-dragging works as well; the
+relative position of the controller is used to move the marker around the ring.</p>
+<p>Colors have no real effect on the 3D printed model, but they can be used to
 distinguish different parts while editing. Or just make things look nicer.</p>
 <hr />
 <h4 id="complexity-tool">Complexity Tool</h4>
@@ -628,10 +500,10 @@ distinguish different parts while editing. Or just make things look nicer.</p>
 <p>The Complexity Tool changes the number of triangles used to represent primitive
 objects. It has no effect on a box (and is disabled if a box is the primary
 selection), but does work on spheres, cylinders, and tori.</p>
-<p>The Complexity Tool will also be disabled if a <a href="#combining-models">combined</a>
-model is the primary selection. You could <a href="#selection">select child models</a> of
-the combined model to modify their complexities; the combined model will update
-appropriately when its children are no longer selected.</p>
+<p>The Complexity Tool will also be disabled if a <a href="#csg">CSG</a> model is the primary
+selection. You could <a href="#selection">select child models</a> of the CSG model to
+modify their complexities; the CSG model will update when its children are no
+longer selected.</p>
 <p><img alt="" src="../img/HighComplexity.jpg" style="height:120px;float:right;margin:2px;" />
 <img alt="" src="../img/LowComplexity.jpg" style="height:120px;float:right;margin:2px;" /></p>
 <p>Dragging the slider handle on the Complexity Tool updates the number of
@@ -640,7 +512,7 @@ relative position of the controller moves the handle. These images show the
 extreme positions of the handle applied to a cylinder's complexity.</p>
 <p>Note that you can use complexity to create variations of models. The lowest
 complexity cylinder is a triangular prism, and the lowest complexity sphere is
-an octohedron.</p>
+a tetrahedron.</p>
 <hr />
 <h4 id="cylinder-tool">Cylinder Tool</h4>
 <p><img alt="" src="../img/CylinderTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
@@ -650,9 +522,9 @@ to create cones or truncated cones.</p>
 <p><img alt="" src="../img/CylinderToolActive.jpg" style="height:140px;float:right;" /></p>
 <p>The tool consists of a double-ended slider at the top and bottom. The pair of
 handles on each slider work symmetrically. The diameter being modified follows
-the current <a href="#precision">precision</a> setting and also snaps to the current <a href="#edge-target">edge
-target length</a> if the target is active. <a href="#feedback">Feedback</a>
-shows the current diameter value during a drag.</p>
+the current <a href="#precision">precision</a> setting and also snaps to the current <a href="#targets">edge
+target length</a> if the target is active. <a href="#feedback">Feedback</a> shows
+the current diameter value during a drag.</p>
 <p>Grip-dragging also may be used to modify either diameter. A <a href="#interaction">hover
 guide</a> attached to each controller shows which slider handle will
 be activated when the grip button is pressed. The relative position of the
@@ -677,98 +549,14 @@ with the cartesian planes of the stage, rather than with the local coordinates
 of the primary selection.</p>
 <p>Applying the Mirror Tool to a model creates a new model. The original model
 becomes a child of the mirrored model; you can see it in the <a href="#tree-panel">Tree
-Panel</a> and <a href="#selection">select it</a> if you want to modify it.</p>
-<hr />
-<h4 id="profile-tool">Profile Tool</h4>
-<p><img alt="" src="../img/ProfileTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
-<p>The Profile Tool lets you edit the edge profile of selected models to create
-various effects such as beveling, chamfering, or rounding. The profile change
-is applied to all edges of all selected models.</p>
-<p><img alt="" src="../img/ProfileToolCreateButton.jpg" style="height:180px;float:right;" /></p>
-<p>If you activate the Profile Tool for a model that has not yet had its edge
-profile modified, the tool brings up a panel with a single button that lets you
-create a default profile for the model. Clicking this button will apply the
-default profile to the model to create a bevel. If multiple models are
-selected, the <code>Create Profile</code> button will appear only if any of the models
-does not already have edge profiles.</p>
-<!-- Need some vertical space for the image here -->
-
-<p>&nbsp;
-<br>
-&nbsp;</p>
-<p><img alt="" src="../img/ProfileToolDefaultProfile.jpg" style="height:180px;float:right;" /></p>
-<p>If all selected models have edge profiles, or if you click the <code>Create Profile</code>
-button, the Profile Tool switches to editing mode and shows the current profile
-in a rectangular sheet above the primary selection. This image shows the
-default profile initially created for a model, creating a simple bevel on all
-edges.</p>
-<p>The line drawn on the sheet represents the profile that will be applied to each
-edge of the selected Models. The upper-right corner is where the edge is
-located; the default profile creates a bevel that cuts off the top-right half
-of the edge as can be seen in the beveled cube in the above image.</p>
-<p>The upper-left and lower-right points of the profile are fixed (not editable),
-and are rendered in black to indicate this. You can add new points between
-them, move those points around, and delete points, as described below. The
-selected Models update as the profile is edited.</p>
-<h5 id="editing-the-profile-with-mouse-or-pinch">Editing the Profile with Mouse or Pinch</h5>
-<p><img alt="" src="../img/ProfileToolDeleteBox.jpg" style="height:120px;float:right;" /></p>
-<p>Clicking anywhere on the profile line (except very close to an existing point)
-creates a new interior point at that spot. New points are rendered as red to
-indicate that they are movable. Dragging instead of clicking creates a new
-point and immediately starts dragging it. Dragging an existing interior point
-moves it; when you do this, a box with an "X" in it appears to allow you to
-delete the point by dragging it over that box, as illustrated here.</p>
-<h5 id="editing-the-profile-with-grip-drag">Editing the Profile with Grip Drag</h5>
-<p><img alt="" src="../img/ProfileToolGripHighlightMidpoint.jpg" style="height:160px;float:right;margin:2px" />
-<img alt="" src="../img/ProfileToolGripHighlightPoint.jpg" style="height:160px;float:right;margin:2px" /></p>
-<p>When in <a href="#vr-and-non-vr-modes">VR mode or hybrid mode</a>, holding either VR
-controller so that the <a href="#interaction">hover guide</a> points forward (toward the
-sheet) will highlight all movable points and also the midpoint of each profile
-line segment, whichever is closest to the current relative controller
-position. The midpoint is rendered as a red square, as shown here. When a point
-is highlighted, grip dragging moves that point. When a midpoint square is
-highlighted, grip dragging creates a new point along that segment and starts
-dragging it. As in the mouse/pinch case, a delete box with an "X" appears to
-allow points to be removed.</p>
-<p>Moving the controller far enough to the right or bottom of the sheet will
-allow you to drag the scale slider or maximum angle slider described below.</p>
-<h5 id="profile-scaling">Profile Scaling</h5>
-<p><img alt="" src="../img/ProfileToolScalingLarge.jpg" style="height:140px;float:right;margin:2px;" />
-<img alt="" src="../img/ProfileToolScalingSmall.jpg" style="height:140px;float:right;margin:2px;" /></p>
-<p>The slider at the bottom of the sheet allows you to scale the size of the
-profile as it is applied to edges without having to readjust any points. For
-example, you can create a rounding profile and change the radius by adjusting
-the slider as shown here.</p>
-<h5 id="maximum-angle">Maximum Angle</h5>
-<p><img alt="" src="../img/ProfileToolMaxAngle.jpg" style="height:140px;float:right;" /></p>
-<p>The slider on the right of the sheet allows you to change the maximum edge
-angle, from 0 to 180 degrees. This determines which edges are affected by the
-tool. For example, suppose you have a cylinder and want to apply the profile to
-just the edges between the top or bottom and the sides, as shown here. These
-edges form 90 degree angles, so as long as the maximum angle is at least 90,
-they will have the profile applied. The edges between faces forming the sides
-are typically greater than 90 degrees (unless the cylinder has very low
-<a href="#complexity-tool">complexity</a>); as long as the maximum angle is smaller than
-that angle, profiles will not be applied to those edges.  The default is 120
-degrees.</p>
-<h5 id="sheet-size-and-position">Sheet Size and Position</h5>
-<p>There is an interactive handle on each edge of the interactive sheet.  These
-handles allow you to move the sheet if it is obscuring anything or to resize it
-if you want to have finer or coarser control over the sheet contents.  Dragging
-any handle moves the sheet in the corresponding dimension (right/left or
-up/down). <a href="#alternate-input-state">Alt-dragging</a> a handle resizes the sheet in
-that dimension. Grip-dragging (and the alt version) works as well if you orient
-a controller so that the <a href="#interaction">hover guide</a> is parallel to the
-direction of motion of the handle.</p>
-<h5 id="_1"></h5>
+Panel</a>.</p>
 <hr />
 <h4 id="rotation-tool">Rotation Tool</h4>
 <p><img alt="" src="../img/RotationTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
-<p>The Rotation Tool lets you rotate selected models. It has 3 color-coded rings
-for rotating about the cartesian axes and a central sphere for doing free
-spherical rotation. The rotation angle follows the current
-<a href="#precision">precision</a> setting and also snaps to the current <a href="#point-target">point target
-direction</a>.</p>
+<p>The Rotation Tool lets you rotate selected models. It has 3 color-coded rings for
+rotating about the cartesian axes and a central sphere for doing free spherical
+rotation. The rotation angle follows the current <a href="#precision">precision</a>
+setting and also snaps to the current <a href="#targets">point target direction</a>.</p>
 <p>Color-coded <a href="#feedback">feedback</a> shows the current rotation angle or
 angles during a drag.</p>
 <p><img alt="" src="../img/RotationToolActive.jpg" style="height:140px;float:right;" /></p>
@@ -800,10 +588,9 @@ double-ended sliders aligned with the coordinate axes of the primary model and
 model. The axis sliders are used to scale the model nonuniformly in one
 dimension only, while the corner sliders are used to scale uniformly in all
 three dimensions. Any dimension being scaled follows the current
-<a href="#precision">precision</a> and snaps to the current <a href="#edge-target">edge target
-length</a> if the target is active. Color-coded
-<a href="#feedback">feedback</a> shows the current relevant dimensions or dimensions of
-the primary selection during a drag.</p>
+<a href="#precision">precision</a> and snaps to the current <a href="#targets">edge target length</a>
+if the target is active. Color-coded <a href="#feedback">feedback</a> shows the current
+relevant dimensions or dimensions of the primary selection during a drag.</p>
 <p><img alt="" src="../img/ScaleToolActive.jpg" style="height:140px;float:right;" /></p>
 <p>There are two scaling modes:</p>
 <ul>
@@ -828,8 +615,7 @@ guide will show a color-coded (neutral if a corner slider) connection to the
 closest handle of that slider. When a handle is highlighted in this manner,
 pressing the grip button and moving the controller along the slider direction
 scales the model(s).</p>
-<!-- Need some vertical space for the image here -->
-
+<!-- Need some room for the image here -->
 <p>&nbsp;</p>
 <hr />
 <h4 id="torus-tool">Torus Tool</h4>
@@ -841,7 +627,7 @@ selection. It allows the inner and outer diameters of the torus to be</p>
 vertical. The horizontal slider changes the outer diameter, and the vertical
 slider changes the inner diameter. The handles symmetrically. The diameter
 being modified follows the current <a href="#precision">precision</a> setting and also
-snaps to the current <a href="#edge-target">edge target length</a> if the target is
+snaps to the current <a href="#targets">edge target length</a> if the target is
 active. <a href="#feedback">Feedback</a> shows both diameter values during a drag.</p>
 <p>Note that if the inner diameter is increased too much, the outer diameter will
 be increased as well to keep the torus from intersecting itself. Reducing the
@@ -860,11 +646,11 @@ diameter.</p>
 double-ended slider along each of the cartesian axes. Dragging the handle at
 either end translates all selected models along the corresponding axis.
 Translation offsets follow the current <a href="#precision">precision</a> setting. The
-translation also snaps to the current <a href="#point-target">point target location</a> if
-the target is active; snapping is done when the minimum, center, or maximum
-value of the primary model in the translated dimension is aligned with the
-target position. Color-coded <a href="#feedback">feedback</a> shows the current
-translation amount during a drag.</p>
+translation also snaps to the current <a href="#targets">point target location</a> if the
+target is active; snapping is done when the minimum, center, or maximum value
+of the primary model in the translated dimension is aligned with the target
+position. Color-coded <a href="#feedback">feedback</a> shows the current translation
+amount during a drag.</p>
 <p>The <a href="#axis-aligned-toggle-tool">Axis-Aligned Toggle Tool</a> affects how the
 Translation Tool is attached to the primary selection. If the toggle is active,
 then the sliders will always be aligned with the cartesian axes of the stage,
@@ -879,24 +665,18 @@ slider. When a handle is highlighted in this manner, pressing the grip button
 and moving the controller along the slider direction translates the model(s)
 along the axis in either direction (pull or push).</p>
 <hr />
-<h3 id="combining-shelf">Combining Shelf</h3>
-<p><img alt="" src="../img/CombiningShelf.jpg" style="height:100px;float:right;" /></p>
-<p>This shelf is at the top on the left of the work area. It has icons for
-different operations that <a href="combining-models">combine models in the scene</a>.</p>
-<p>The first three icons represent the three supported <a href="#csg">CSG</a> operations,
-<em>difference</em>, <em>intersection</em>, and <em>union</em>.  These icons are enabled when two or
-more models are selected. Clicking on any of the icons creates the
-corresponding CSG combination of the selected models.  If a single CSG model is
-selected, clicking on either of the two enabled CSG icons changes the operation
-for that model to the corresponding one.</p>
-<p>The last icon is for the <a href="#convex-hull">Convex Hull</a> operation. This is enabled
-when anything is selected, since it can be useful to apply to a single model.</p>
-<p>When any of these operations is applied, the original models become children of
-the combined model; you can see the tree hierarchy in the <a href="#tree-panel">Tree
-Panel</a>. You can also <a href="#selection">select the children</a> if you want
-to change them within the combined model.</p>
-<p>Note that the combining operations, particularly complex CSG, <a href="#some-patience-required">may be
-slow</a>.</p>
+<h3 id="csg-shelf">CSG Shelf</h3>
+<p><img alt="" src="../img/CSGShelf.jpg" style="height:100px;float:right;" /></p>
+<p>This shelf is at the top on the left of the work area. It has three icons for
+the three supported <a href="#csg">CSG</a> operations, <em>difference</em>, <em>intersection</em>, and
+<em>union</em>.</p>
+<p>The icons are enabled when two or more models are selected. Clicking on any of
+the icons creates the corresponding CSG combination of the selected models. The
+original models become children of the CSG model; you can see them in the <a href="#tree-panel">Tree
+Panel</a>.</p>
+<p>If a single CSG model is selected, clicking on either of the two enabled CSG
+icons changes the operation for that model to the corresponding one.</p>
+<p>Note that performing CSG operations may be slow.</p>
 <hr />
 <h3 id="basics-shelf">Basics Shelf</h3>
 <p>The "Basics" shelf is the top shelf on the back wall of the work area. It
@@ -966,23 +746,23 @@ other..</p>
 <hr />
 <h4 id="point-target-toggle-tool">Point Target Toggle Tool</h4>
 <p><img alt="" src="../img/PointTargetToggleTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
-<p>The Point Target Toggle Tool toggles the visibility of the <a href="#point-target">point
-target</a>. When the point target is made visible for the first
-time, it is placed at the center of the stage. After it is dragged to any other
+<p>The Point Target Toggle Tool toggles the visibility of the <a href="#targets">point
+target</a>. When the point target is made visible for the first time, it
+is placed at the center of the stage. After it is dragged to any other
 location, it stays there until dragged again.</p>
 <hr />
 <h4 id="edge-target-toggle-tool">Edge Target Toggle Tool</h4>
 <p><img alt="" src="../img/EdgeTargetToggleTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
-<p>The Edge Target Toggle Tool toggles the visibility of the <a href="#edge-target">edge
-target</a>. When the edge target is made visible for the first time,
-it is placed at the center of the stage. After it is dragged to any other
+<p>The Edge Target Toggle Tool toggles the visibility of the <a href="#targets">edge
+target</a>. When the edge target is made visible for the first time, it
+is placed at the center of the stage. After it is dragged to any other
 location, it stays there until dragged again.</p>
 <hr />
 <h4 id="linear-layout-tool">Linear Layout Tool</h4>
 <p><img alt="" src="../img/LinearLayoutTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>The Linear Layout Tool can be used to lay out two or more models along a line.
-The length and orientation of the <a href="#edge-target">edge target</a> will be used to
-lay out the centers of all secondary selections relative to the primary
+The length and orientation of the <a href="#targets">edge target</a> will be used to lay
+out the centers of all secondary selections relative to the primary
 selection.</p>
 <p>It may be useful to create a temporary model with the correct size as a layout
 aid. For example, suppose you want to lay out 3 models along the X direction
@@ -1002,7 +782,7 @@ with 6cm between their centers:</p>
 <h4 id="radial-layout-tool">Radial Layout Tool</h4>
 <p><img alt="" src="../img/RadialLayoutTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>The Radial Layout Tool can be used to lay out models along a circle or circular
-arc. All of the parameters of the layout are specified using the <a href="#point-target">point
+arc. All of the parameters of the layout are specified using the <a href="#targets">point
 target</a>.</p>
 <p>The point target has a location (where the sphere is) and a direction (where
 the arrow is pointing). If only one model is selected and the Radial Layout
@@ -1062,20 +842,8 @@ allows you to save your session, load a new session, and so on.</p>
 <p><img alt="" src="../img/SettingsPanelTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>The Settings Panel Tool brings up the <a href="#settings-panel">Settings Panel</a> which
 allows you to edit application settings.</p>
-<!-- Need some vertical space for the image here -->
-
+<!-- Need some room for the image here -->
 <p>&nbsp;</p>
-<hr />
-<h4 id="info-panel-tool">Info Panel Tool</h4>
-<p><img alt="" src="../img/InfoPanelTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
-<p>The Info Panel Tool brings up the <a href="#info-panel">Info Panel</a> which shows
-information about all models currently selected.</p>
-<hr />
-<h4 id="help-panel-tool">Help Panel Tool</h4>
-<p><img alt="" src="../img/HelpPanelTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
-<p>The Help Panel Tool brings up the <a href="#help-panel">Help Panel</a> which shows
-information about the application version and has buttons to open help in a
-browser.</p>
 <hr />
 <h3 id="viewing-shelf">Viewing Shelf</h3>
 <p>The viewing shelf is the shelf just above the <a href="#tree-panel">Tree Panel</a> on the
@@ -1086,30 +854,29 @@ back wall. It has icons for tools that deal with viewing models.</p>
 <p><img alt="" src="../img/Edges.jpg" style="height:140px;float:right;" /></p>
 <p>The Show Edges Toggle Tool lets you see edges of your models as visible lines.
 This can help you see how your models are tessellated into triangles for 3D
-printing or to help place the <a href="#edge-target">Edge Target</a>.</p>
-<!-- Need some vertical space for the image here -->
-
+printing.</p>
+<!-- Need some room for the image here -->
 <p>&nbsp;
 <br>
 &nbsp;</p>
 <hr />
-<h4 id="inspector-tool">Inspector Tool</h4>
-<p><img alt="" src="../img/InspectorTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
+<h4 id="inspect-toggle-tool">Inspect Toggle Tool</h4>
+<p><img alt="" src="../img/InspectToggleTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>MakerVR provides a very special <em>inspector</em> mode that lets you examine a model
 from all directions without having to move it. To inspect a model, select it as
-the primary selection, and click on the Inspector Tool to turn it on.  Another
-shortcut to this mode is to long-press (more than a half-second or so) either
-the mouse or laser pointer/pinch on a model.</p>
+the primary selection, and click on the Inspect Toggle Tool to turn it on.
+Another shortcut to this mode is to long-press (more than a half-second or so)
+either the mouse or laser pointer/pinch on a model.</p>
 <p>When in <a href="#vr-and-non-vr-modes">VR mode</a> (headset on), the model will be
 attached to the controller in the hand that initiated the inspection. You can
-turn your hand around to see the model from all angles.</p>
+turn your hand around to see the model from all angles. Click any controller
+button to release the model back to its regular position.</p>
 <p>When in <a href="#vr-and-non-vr-modes">conventional mode or hybrid mode</a>, the model
 will be enlarged and placed in the middle of the application window. In
 conventional mode, moving the mouse (no need to click) rotates the model. In
 hybrid mode, if the inspector was initiated with the mouse, it is the same as
 conventional mode, but if the inspector was initiated with a controller, that
 controller rotates the model as in VR mode.</p>
-<p>Any key, mouse click, or controller button press exits inspector mode.</p>
 <hr />
 <h2 id="tree-panel">Tree Panel</h2>
 <p><img alt="" src="../img/TreePanel.jpg" style="height:160px;float:right;" /></p>
@@ -1186,10 +953,6 @@ interacting with these panels are:</p>
 <li>Hitting enter on the keyboard with a button focused activates it.</li>
 <li>Hitting the escape key generally dismisses the panel with no action taken.</li>
 </ul>
-<p>Some of the panels display scroll bars when their contents are too large to
-fit. You can scroll a panel using the scrollbar on the right (mouse or pinch),
-dragging the contents up or down (mouse or pinch), or by pressing the Up or
-Down trackpad buttons on a VR controller.</p>
 <h3 id="session-panel">Session Panel</h3>
 <p><img alt="" src="../img/SessionPanel.jpg" style="height:160px;float:right;" /></p>
 <p>The Session Panel is shown when the application starts and can also be brought
@@ -1211,15 +974,12 @@ the session files if that's your thing.</p>
   unnamed session. If you use this during a session, you will be informed if
   you made any changes that you might want to save.</li>
 <li><code>Save session</code>. If your session is already named, this will be enabled to
-  save it again if you made any changes to the scene or toggle states.</li>
+  save it again</li>
 <li><code>Save session as</code>. This lets you save your session with a different name.</li>
-<li><code>Export Selection as STL (Text)</code> and <code>Export Selection as STL (Binary)</code>. The
-  application would be pretty useless if there is no way to send the model
-  information to a 3D printer, right? This button lets you export the selected
-  model(s) to a file in either text or binary STL format.</li>
-<li><code>Help</code> (question mark icon at top left). Brings up the <a href="#help-panel">Help
-  Panel</a>. Dismissing the Help Panel returns to the Session Panel.</li>
-<li><code>Settings</code> (gear icon at top right). Brings up the <a href="#settings-panel">Settings
+<li><code>Export STL</code>. The application would be pretty useless if there is no way to
+  send the model information to a 3D printer, right? This button lets you
+  export all visible models as an STL file.</li>
+<li>Settings (gear icon at top right). Brings up the <a href="#settings-panel">Settings
   Panel</a>. Dismissing the Settings Panel returns to the Session
   Panel.</li>
 </ul>
@@ -1242,27 +1002,6 @@ when using <a href="#vr-and-non-vr-modes">VR mode or hybrid mode</a>.  When enab
 menu button on each controller brings up a radial menu attached to the
 controller hand. The <code>Edit Radial Menu</code> button brings up the <a href="#radial-menu-editor-panel">Radial Menu
 Editor Panel</a>.</p>
-<p>Below that is a slider to adjust the time it takes for <a href="#tooltips">tooltips</a> to
-appear when hovering the mouse or laser pointer over an interactive object.
-Values are in seconds, from 0 at the left to 5 at the right. Setting this to 0
-disables tooltips completely.</p>
-<h3 id="info-panel">Info Panel</h3>
-<p><img alt="" src="../img/InfoPanel.jpg" style="height:140px;float:right;" /></p>
-<p>The Info Panel shows information about all selected models, including the
-number of vertices, number of triangles, and size in all three dimensions.</p>
-<!-- Need some vertical space for the image here -->
-
-<p>&nbsp;
-<br>
-&nbsp;</p>
-<h3 id="help-panel">Help Panel</h3>
-<p><img alt="" src="../img/HelpPanel.jpg" style="height:120px;float:right;" /></p>
-<p>The Help Panel shows some brief "about" text including the current version.
-Below that are two buttons that should bring up this user guide or the <a href="../CheatSheet/">Cheat
-Sheet</a> for reference in your default browser.</p>
-<!-- Need some vertical space for the image here -->
-
-<p>&nbsp;</p>
 <h3 id="radial-menu-editor-panel">Radial Menu Editor Panel</h3>
 <p><img alt="" src="../img/RadialMenuEditorPanel.jpg" style="height:256px;float:right;" /></p>
 <p>This panel is used to edit the radial menus attached to the controllers. The
@@ -1282,7 +1021,7 @@ means that no action is bound to a button.</p>
 <p><img alt="" src="../img/ActionPanel.jpg" style="height:256px;float:right;" /></p>
 <p>The Action Panel is used by the <a href="#radial-menu-editor-panel">Radial Menu Editor
 Panel</a> to select the action associated with a radial
-menu button. It presents a scrolling list of actions. You can scroll the panel
+menu button. It presetns a scrolling list of actions. You can scroll the panel
 using the scrollbar on the right (mouse or pinch), dragging the contents up or
 down (mouse or pinch), or by pressing the Up or Down trackpad buttons on a VR
 controller.</p>
@@ -1304,28 +1043,6 @@ listed first. You can scroll the list using the scrollbar on the right (mouse
 or pinch), dragging the contents up or down (mouse or pinch), or by pressing
 the Up or Down trackpad buttons on a VR controller.</p>
 <p>These references need to exist for real at some point.</p>
-<h3 id="text-panel">Text Panel</h3>
-<p><img alt="" src="../img/TextPanel.jpg" style="height:200px;float:right;" /></p>
-<p>The Text Panel is used to create or modify extruded 3D text. It lets you
-specify the following settings:</p>
-<ul>
-<li>Text string.</li>
-<li>Font family. You can select from the dropdown list containing all available
-  font families.</li>
-<li>Font style. This dropdown lets you select from the styles available for the
-  currently-selected family.</li>
-<li>Character spacing (slider). This factor multiplies the spacing between
-  individual characters to move them closer together or further apart. The
-  default is 1, which is the spacing defined by the font.</li>
-</ul>
-<p>3D text is laid out by default at the origin along the X axis, extruded 2 units
-along the +Z (up) direction. It is sized by default so that the characters are
-approximately 4 units in the Y dimension. The <a href="#scale-tool">Scale Tool</a> can be
-used to change the size, and the <a href="#complexity-tool">Complexity Tool</a> can be
-used to change how finely the characters are tessellated into triangles.</p>
-<p>The font family dropdown can contain many items, so it is important to know
-that the trackpad up/down buttons can be used to scroll a dropdown list when
-using VR controllers.</p>
 <h2 id="quirks">Quirks</h2>
 <p>Every application has some quirks that may need extra explanation. So far,
 there is really only one for MakerVR.</p>

@@ -119,11 +119,7 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#makervr-release-notes">MakerVR Release Notes</a></li>
-            <li class="second-level"><a href="#release-005-november-09-2020">Release 0.0.5 (November 09, 2020)</a></li>
-                
-            <li class="second-level"><a href="#release-004-september-26-2020">Release 0.0.4 (September 26, 2020)</a></li>
-                
-            <li class="second-level"><a href="#release-003-august-9-2020">Release 0.0.3 (August 9, 2020)</a></li>
+            <li class="second-level"><a href="#release-003-august-2020">Release 0.0.3 (August ??, 2020)</a></li>
                 
             <li class="second-level"><a href="#release-002-june-21-2020">Release 0.0.2 (June 21, 2020)</a></li>
                 
@@ -134,68 +130,7 @@
         <div class="col-md-9" role="main">
 
 <h1 id="makervr-release-notes">MakerVR Release Notes</h1>
-<h2 id="release-005-november-09-2020">Release 0.0.5 (November 09, 2020)</h2>
-<ul>
-<li>
-<p>Removed the Mac version from the Release 0.0.4 distribution. Unity enables
-  Metal by default, but Unity/Metal does not support geometry shaders, so the
-  MakerVR custom faceted shader does not work. Disabling Metal caused all kinds
-  of horrible crashes. We will have to wait for something to be fixed.</p>
-</li>
-<li>
-<p>Added 3D text via the Text Tool.</p>
-</li>
-<li>
-<p>Now using CGAL for face triangulation. This fixed a lot of problems with
-  complex concave polygons.</p>
-</li>
-<li>
-<p>Invalid meshes are now indicated with a bright red color. This allows users
-  to tell when the Profile Tool is causing problems. When an invalid mesh is
-  selected, several different tools are now disabled.</p>
-</li>
-<li>
-<p>Added a setting to the Settings Panel for tooltip delay, in seconds. Setting
-  this to 0 disables tooltips completely.</p>
-</li>
-<li>
-<p>Exporting as STL now operates on the current selection rather than all
-  existing top-level models.</p>
-</li>
-<li>
-<p>Many other bug fixes, especially those involving geometric inconsistencies.</p>
-</li>
-</ul>
-<h2 id="release-004-september-26-2020">Release 0.0.4 (September 26, 2020)</h2>
-<ul>
-<li>
-<p>Added a Mac version. (Thanks to Bob Brown for the loaner MacBook.)</p>
-</li>
-<li>
-<p>Added the Info Panel, along with new tool icons to open the Info Panel and
-  the Help Panel.</p>
-</li>
-<li>
-<p>Added the Clip Tool.</p>
-</li>
-<li>
-<p>Added a slider to the Profile Tool to allow the maximum edge angle to be
-  specified; edges forming smaller angles will not be profiled. Fixed a lot of
-  Profile Tool math.</p>
-</li>
-<li>
-<p>Fixed a bug where TreePanel interaction could occur even when it was occluded.</p>
-</li>
-<li>
-<p>All duplicate vertices in meshes should now be merged properly.</p>
-</li>
-<li>
-<p>Changed the way parent models are handled relative to their children; the
-  parent is always defined initially in axis-aligned Cartesian coordinates
-  rather than sometimes trying to copy the child's rotation.</p>
-</li>
-</ul>
-<h2 id="release-003-august-9-2020">Release 0.0.3 (August 9, 2020)</h2>
+<h2 id="release-003-august-2020">Release 0.0.3 (August ??, 2020)</h2>
 <ul>
 <li>
 <p>Added HelpPanel with keyboard shortcuts and button on SessionPanel.</p>
