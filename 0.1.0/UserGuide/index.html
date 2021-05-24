@@ -489,10 +489,10 @@ length. When snapping occurs during one of these operations, both the
 Layout Tool</a> for details.</p>
 <p>When dragged over a model, the edge target snaps to the nearest edge of that
 model's mesh. To see model edges more clearly, you can use the <a href="#show-edges-toggle-tool">Show Edges
-Toggle Tool</a>. If the edge target is dragged from a
-model to the stage, it retains the length of the last edge it snapped
-to. Clicking on the edge target reverses its direction, which is useful when
-using the <a href="#linear-layout-tool">Linear Layout Tool</a>.</p>
+Toggle Tool</a> (except on OSX). If the edge target is
+dragged from a model to the stage, it retains the length of the last edge it
+snapped to. Clicking on the edge target reverses its direction, which is useful
+when using the <a href="#linear-layout-tool">Linear Layout Tool</a>.</p>
 <p><a href="#alternate-input-mode">Alt-dragging</a> the edge target on a model uses the
 rectangular bounds of the model instead of its mesh; the target will snap to
 the nearest edge of the bounds. You can use this feature to easily set the edge
@@ -698,7 +698,7 @@ model will update appropriately when its children are no longer selected.</p>
 complexity cylinder is a triangular prism, and the lowest complexity sphere is
 an octohedron. You can use the <a href="#show-edges-toggle-tool">Show Edges Toggle
 Tool</a> to see the triangle edges more clearly as in
-these images.</p>
+these images (except on OSX).</p>
 <hr />
 <h4 id="cylinder-tool">Cylinder Tool</h4>
 <p><img alt="" src="../img/CylinderTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
@@ -1153,7 +1153,10 @@ back wall. It has icons for tools that deal with viewing models.</p>
 <p><img alt="" src="../img/Edges.jpg" style="height:140px;float:right;" /></p>
 <p>The Show Edges Toggle Tool lets you see edges of your models as visible lines.
 This can help you see how your models are tessellated into triangles for 3D
-printing or to help place the <a href="#edge-target">Edge Target</a>.</p>
+printing or to help place the <a href="#edge-target">Edge Target</a>. Note that this
+feature is not available on OSX, due to <a href="https://docs.unity3d.com/Manual/Metal.html">shader
+limitations</a>; it is always disabled
+on that platform.</p>
 <p>&nbsp;  <!-- Need some vertical space for the image here -->
 <br>
 &nbsp;</p>
