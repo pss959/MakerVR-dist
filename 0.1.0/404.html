@@ -8,7 +8,7 @@
     
     <meta name="author" content="Paul S. Strauss">
     
-    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="shortcut icon" href="/MakerVR-dist/img/favicon.ico">
 
     
     <title>MakerVR</title>
@@ -19,17 +19,17 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
     <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
-    <link href="/css/bootstrap-custom.min.css" rel="stylesheet">
-    <link href="/css/base.min.css" rel="stylesheet">
-    <link href="/css/cinder.min.css" rel="stylesheet">
+    <link href="/MakerVR-dist/css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="/MakerVR-dist/css/base.min.css" rel="stylesheet">
+    <link href="/MakerVR-dist/css/cinder.min.css" rel="stylesheet">
 
     
         
         <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
         
     
-    <link href="/css/custom.css" rel="stylesheet">
-    <link href="/css/version-selector.css" rel="stylesheet">
+    <link href="/MakerVR-dist/css/custom.css" rel="stylesheet">
+    <link href="/MakerVR-dist/css/version-selector.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -61,7 +61,7 @@
             <!-- Main title -->
 
             
-              <a class="navbar-brand" href="/.">MakerVR</a>
+              <a class="navbar-brand" href="/MakerVR-dist/.">MakerVR</a>
             
         </div>
 
@@ -72,31 +72,36 @@
                 
                 
                     <li >
-                        <a href="/.">Home</a>
+                        <a href="/MakerVR-dist/.">Home</a>
                     </li>
                 
                 
                 
                     <li >
-                        <a href="/UserGuide/">User Guide</a>
+                        <a href="/MakerVR-dist/UserGuide/">User Guide</a>
                     </li>
                 
                 
                 
                     <li >
-                        <a href="/CheatSheet/">Cheat Sheet</a>
+                        <a href="/MakerVR-dist/CheatSheet/">Cheat Sheet</a>
                     </li>
                 
                 
                 
                     <li >
-                        <a href="/ReleaseNotes/">Release Notes</a>
+                        <a href="/MakerVR-dist/ReleaseNotes/">Release Notes</a>
                     </li>
                 
                 
                 </ul>
 
             <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
                     <li>
                         <a href="https://github.com/pss959/MakerVR-dist/"><i class="fab fa-github"></i> GitHub</a>
                     </li>
@@ -112,7 +117,7 @@
       <div id="main-content" class="span12">
         <h1 id="404-page-not-found" style="text-align: center">404</h1>
         <p style="text-align: center"><strong>Page not found</strong></p>
-        <p style="text-align: center"><a href="/">Home</a></p>
+        <p style="text-align: center"><a href="/MakerVR-dist/">Home</a></p>
       </div>
     </div>
 
@@ -125,7 +130,7 @@
           
             <hr>
             <p>
-            <small>Copyright &copy; 2020 Paul S. Strauss</small><br>
+            <small>Copyright &copy; 2020-2021 Paul S. Strauss</small><br>
             
             <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
             </p>
@@ -136,7 +141,7 @@
       </footer>
     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="/js/bootstrap-3.0.3.min.js"></script>
+    <script src="/MakerVR-dist/js/bootstrap-3.0.3.min.js"></script>
 
     
     <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
@@ -144,13 +149,40 @@
     <script>hljs.initHighlightingOnLoad();</script>
     
 
-    <script>var base_url = "/"</script>
+    <script>var base_url = "/MakerVR-dist/"</script>
     
-    <script src="/js/base.js"></script>
-    <script src="/js/versions.js"></script>
-    <script src="/js/version-selector.js"></script>
+    <script src="/MakerVR-dist/js/base.js"></script>
+    <script src="/MakerVR-dist/js/versions.js"></script>
+    <script src="/MakerVR-dist/js/version-selector.js"></script>
+    <script src="/MakerVR-dist/search/main.js"></script>
 
-    <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

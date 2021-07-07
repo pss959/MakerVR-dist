@@ -23,6 +23,10 @@ var versions = [
     },
     {
         "version": "0.1.0",
+        "aliases": [],
+    },
+    {
+        "version": "0.2.0",
         "aliases": ['latest'],
     },
 ]

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Paul S. Strauss">
-    
+    <link rel="canonical" href="https://pss959.github.io/MakerVR-dist/UserGuide/">
     <link rel="shortcut icon" href="../img/favicon.ico">
 
     
@@ -97,6 +97,11 @@
                 </ul>
 
             <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
                     <li >
                         <a rel="prev" href="..">
                             <i class="fas fa-arrow-left"></i> Previous
@@ -108,7 +113,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://github.com/pss959/MakerVR-dist/edit/master/docs/UserGuide.md"><i class="fab fa-github"></i> Edit on GitHub</a>
+                        <a href="https://github.com/pss959/MakerVR/edit/master/MakerVR/PublicDoc/docs/UserGuide.md"><i class="fab fa-github"></i> Edit on GitHub</a>
                     </li>
             </ul>
         </div>
@@ -621,7 +626,7 @@ the model editing Tools. These are the main interactive gizmos that let you
 modify different aspects of models.</p>
 <hr />
 <h4 id="clip-tool">Clip Tool</h4>
-<p><img alt="" src="../img/ClipTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/ClipTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>The Clip Tool allows you to remove parts of models with one or more clipping
 planes. This tool has three interactive parts:</p>
 <p><img alt="" src="../img/ClipToolInactive.jpg" style="height:140px;float:right;" /></p>
@@ -665,7 +670,7 @@ grip-dragging will rotate the plane based on the controller orientation.
 Snapping occurs as above unless <a href="#alternate-input-mode">alt-dragging</a>.</p>
 <hr />
 <h4 id="color-tool">Color Tool</h4>
-<p><img alt="" src="../img/ColorTool.jpg" style="height:80px;float:left;margin-right:8px;" />
+<p><img alt="" src="../img/ColorTool.jpg" style="height:50px;float:left;margin-right:8px;" />
 <img alt="" src="../img/ColorToolActive.jpg" style="height:120px;float:right;margin:2px;" /></p>
 <p>The Color Tool edits the color of all selected models. It is placed above the
 primary selection. The disc in the center of the tool shows the current color
@@ -677,7 +682,7 @@ controller is used to move the marker around the ring.</p>
 distinguish different parts while editing. Or just to make things look nicer.</p>
 <hr />
 <h4 id="complexity-tool">Complexity Tool</h4>
-<p><img alt="" src="../img/ComplexityTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/ComplexityTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>The Complexity Tool appears above the primary selection and changes the number
 of triangles used to represent all selected primitive objects. It has no effect
 on boxes or imported models, but does work on spheres, cylinders, tori, and
@@ -701,7 +706,7 @@ Tool</a> to see the triangle edges more clearly as in
 these images (except on OSX).</p>
 <hr />
 <h4 id="cylinder-tool">Cylinder Tool</h4>
-<p><img alt="" src="../img/CylinderTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/CylinderTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>The Cylinder Tool is enabled when a primitive cylinder model is the primary
 selection. It allows the top and bottom radii of the cylinder to be changed to
 create cones or truncated cones.</p>
@@ -717,7 +722,7 @@ be activated when the grip button is pressed. The relative position of the
 controller chooses the top or bottom radius.</p>
 <hr />
 <h4 id="mirror-tool">Mirror Tool</h4>
-<p><img alt="" src="../img/MirrorTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/MirrorTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>The Mirror Tool mirrors selected models across a plane. When the tool is
 active, it adds 3 color-coded orthogonal planes to the primary selection.
 Clicking on any of the planes mirrors the model across it.</p>
@@ -738,7 +743,7 @@ becomes a child of the mirrored model; you can see it in the <a href="#tree-pane
 Panel</a> and <a href="#selection">select it</a> if you want to modify it.</p>
 <hr />
 <h4 id="profile-tool">Profile Tool</h4>
-<p><img alt="" src="../img/ProfileTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/ProfileTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>The Profile Tool lets you edit the edge profile of selected models to create
 various effects such as beveling, chamfering, or rounding. The profile change
 is applied to edges of all selected models.</p>
@@ -807,7 +812,7 @@ that angle, profiles will not be applied to those edges.  The default is 120
 degrees.</p>
 <hr />
 <h4 id="rotation-tool">Rotation Tool</h4>
-<p><img alt="" src="../img/RotationTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/RotationTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>The Rotation Tool lets you rotate selected models. It has 3 color-coded rings
 for rotating about the cartesian axes and a central sphere for doing free
 spherical rotation. The rotation angle follows the current
@@ -840,7 +845,7 @@ the same way. When no ring is selected, the model(s) will be free rotated to
 match the controller orientation.</p>
 <hr />
 <h4 id="scale-tool">Scale Tool</h4>
-<p><img alt="" src="../img/ScaleTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/ScaleTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>The Scale Tool lets you change the size of selected models. It has several
 double-ended sliders:</p>
 <ul>
@@ -882,7 +887,7 @@ direction scales the model(s).</p>
 <p>&nbsp;  <!-- Need some vertical space for the image here --></p>
 <hr />
 <h4 id="torus-tool">Torus Tool</h4>
-<p><img alt="" src="../img/TorusTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/TorusTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>The Torus Tool is enabled when a primitive torus model is the primary
 selection. It allows the inner and outer diameters of the torus to be</p>
 <p><img alt="" src="../img/TorusToolActive.jpg" style="height:140px;float:right;" /></p>
@@ -903,7 +908,7 @@ be activated when the grip button is pressed. The relative orientation
 diameter.</p>
 <hr />
 <h4 id="translation-tool">Translation Tool</h4>
-<p><img alt="" src="../img/TranslationTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/TranslationTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p><img alt="" src="../img/TranslationToolActive.jpg" style="height:140px;float:right;" /></p>
 <p>The Translation Tool lets you change the position of selected models. It adds a
 double-ended slider along each of the cartesian axes. Dragging the handle at
@@ -953,7 +958,7 @@ contains icons for the standard operations you would expect to find in most
 interactive applications.</p>
 <hr />
 <h4 id="undo-tool">Undo Tool</h4>
-<p><img alt="" src="../img/UndoTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/UndoTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>The Undo Tool undoes the last operation performed that modified the scene in
 some way. This includes:</p>
 <ul>
@@ -975,26 +980,26 @@ include:</p>
 undone (<a href="#tooltip-delay">if tooltips are enabled</a>).</p>
 <hr />
 <h4 id="redo-tool">Redo Tool</h4>
-<p><img alt="" src="../img/RedoTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/RedoTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>The Redo Tool redoes the last undone operation. Hovering over the Redo Tool
 shows a tooltip indicating what that operation is (<a href="#tooltip-delay">if tooltips are
 enabled</a>).</p>
 <p>&nbsp;  <!-- Need some vertical space for the image here --></p>
 <hr />
 <h4 id="delete-tool">Delete Tool</h4>
-<p><img alt="" src="../img/DeleteTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/DeleteTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>Clicking the Delete Tool deletes all selected models from the scene. They are
 gone forever, unless you undo.</p>
 <p>&nbsp;  <!-- Need some vertical space for the image here --></p>
 <hr />
 <h4 id="cut-tool">Cut Tool</h4>
-<p><img alt="" src="../img/CutTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/CutTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>Clicking the Cut Tool copies all selected models from the scene into the
 clipboard and removes them from the scene.</p>
 <p>&nbsp;  <!-- Need some vertical space for the image here --></p>
 <hr />
 <h4 id="copy-tool">Copy Tool</h4>
-<p><img alt="" src="../img/CopyTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/CopyTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>Clicking the Copy Tool copies all selected models from the scene into the
 clipboard.</p>
 <p>&nbsp;  <!-- Need some vertical space for the image here -->
@@ -1002,13 +1007,13 @@ clipboard.</p>
 &nbsp;</p>
 <hr />
 <h4 id="paste-tool">Paste Tool</h4>
-<p><img alt="" src="../img/PasteTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/PasteTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>Clicking the Paste Tool pastes all models from the clipboard into the scene as
 top-level models at their previous locations.</p>
 <p>&nbsp;  <!-- Need some vertical space for the image here --></p>
 <hr />
 <h4 id="paste-into-tool">Paste Into Tool</h4>
-<p><img alt="" src="../img/PasteIntoTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/PasteIntoTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>The Paste Into Tool can be used to paste models from the clipboard as children
 of the selected model, as long as that model is one that can have children.</p>
 <p>For example, if you have a <a href="#csg">CSG</a> union model and you want to add another
@@ -1022,7 +1027,7 @@ contains icons for operations that can help lay out models with respect to each
 other..</p>
 <hr />
 <h4 id="point-target-toggle-tool">Point Target Toggle Tool</h4>
-<p><img alt="" src="../img/PointTargetToggleTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/PointTargetToggleTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>The Point Target Toggle Tool toggles the visibility of the <a href="#point-target">point
 target</a>. When the point target is made visible for the first
 time, it is placed at the center of the stage. After it is dragged to any other
@@ -1031,7 +1036,7 @@ location, it stays there until dragged again.</p>
 can use the <a href="#tree-panel">Tree Panel</a> to hide those models temporarily.</p>
 <hr />
 <h4 id="edge-target-toggle-tool">Edge Target Toggle Tool</h4>
-<p><img alt="" src="../img/EdgeTargetToggleTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/EdgeTargetToggleTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>The Edge Target Toggle Tool toggles the visibility of the <a href="#edge-target">edge
 target</a>. When the edge target is made visible for the first time,
 it is placed at the center of the stage. After it is dragged to any other
@@ -1040,7 +1045,7 @@ location, it stays there until dragged again.</p>
 can use the <a href="#tree-panel">Tree Panel</a> to hide those models temporarily.</p>
 <hr />
 <h4 id="linear-layout-tool">Linear Layout Tool</h4>
-<p><img alt="" src="../img/LinearLayoutTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/LinearLayoutTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>The Linear Layout Tool can be used to lay out two or more models along a line.
 The length and orientation of the <a href="#edge-target">edge target</a> will be used to
 lay out the centers of all secondary selections relative to the primary
@@ -1062,7 +1067,7 @@ with 6cm between their centers:</p>
 </ul>
 <hr />
 <h4 id="radial-layout-tool">Radial Layout Tool</h4>
-<p><img alt="" src="../img/RadialLayoutTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/RadialLayoutTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>The Radial Layout Tool can be used to lay out models along a circle or circular
 arc. All of the parameters of the layout are specified using the <a href="#point-target">point
 target</a>.</p>
@@ -1098,7 +1103,7 @@ the end angle.</p>
 down to its tiny state.</p>
 <hr />
 <h4 id="axis-aligned-toggle-tool">Axis-Aligned Toggle Tool</h4>
-<p><img alt="" src="../img/AxisAlignedToggleTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/AxisAlignedToggleTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>The Axis-Aligned Toggle Tool toggles whether certain tools operate in the
 selected model's local coordinates or in stage coordinates. For example, if a
 model has been rotated to an arbitrary orientation and you want to move it 5cm
@@ -1117,13 +1122,13 @@ Tool</a> will be oriented with the stage, not the model.</p>
 which brings up a specific <a href="#gui-panels">GUI Panel</a>.</p>
 <hr />
 <h4 id="session-panel-tool">Session Panel Tool</h4>
-<p><img alt="" src="../img/SessionPanelTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/SessionPanelTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>The Session Panel Tool brings up the <a href="#session-panel">Session Panel</a> which
 allows you to save your session, load a new session, and so on.</p>
 <p>&nbsp;  <!-- Need some vertical space for the image here --></p>
 <hr />
 <h4 id="settings-panel-tool">Settings Panel Tool</h4>
-<p><img alt="" src="../img/SettingsPanelTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/SettingsPanelTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>The Settings Panel Tool brings up the <a href="#settings-panel">Settings Panel</a> which
 allows you to edit application settings.</p>
 <p>&nbsp;  <!-- Need some vertical space for the image here -->
@@ -1131,7 +1136,7 @@ allows you to edit application settings.</p>
 &nbsp;</p>
 <hr />
 <h4 id="info-panel-tool">Info Panel Tool</h4>
-<p><img alt="" src="../img/InfoPanelTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/InfoPanelTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>The Info Panel Tool brings up the <a href="#info-panel">Info Panel</a> which shows
 information about all selected models.</p>
 <p>&nbsp;  <!-- Need some vertical space for the image here -->
@@ -1139,7 +1144,7 @@ information about all selected models.</p>
 &nbsp;</p>
 <hr />
 <h4 id="help-panel-tool">Help Panel Tool</h4>
-<p><img alt="" src="../img/HelpPanelTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/HelpPanelTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>The Help Panel Tool brings up the <a href="#help-panel">Help Panel</a> which displays the
 application version and has buttons to open help in a browser.</p>
 <p>&nbsp;  <!-- Need some vertical space for the image here --></p>
@@ -1149,7 +1154,7 @@ application version and has buttons to open help in a browser.</p>
 back wall. It has icons for tools that deal with viewing models.</p>
 <hr />
 <h4 id="show-edges-toggle-tool">Show Edges Toggle Tool</h4>
-<p><img alt="" src="../img/ShowEdgesToggleTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/ShowEdgesToggleTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p><img alt="" src="../img/Edges.jpg" style="height:140px;float:right;" /></p>
 <p>The Show Edges Toggle Tool lets you see edges of your models as visible lines.
 This can help you see how your models are tessellated into triangles for 3D
@@ -1162,7 +1167,7 @@ on that platform.</p>
 &nbsp;</p>
 <hr />
 <h4 id="build-volume-toggle-tool">Build Volume Toggle Tool</h4>
-<p><img alt="" src="../img/BuildVolumeToggleTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/BuildVolumeToggleTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p><img alt="" src="../img/BuildVolume.jpg" style="height:140px;float:right;" /></p>
 <p>The Build Volume Toggle Tool shows or hides a representation of your 3D
 printer's build volume as a translucent box. You can specify the size of the
@@ -1172,7 +1177,7 @@ rendered in <a href="#model-colors">a special color</a> to let you know that you
 likely to have problems printing them as is.</p>
 <hr />
 <h4 id="inspect-selection-tool">Inspect Selection Tool</h4>
-<p><img alt="" src="../img/InspectorTool.jpg" style="height:80px;float:left;margin-right:8px;" /></p>
+<p><img alt="" src="../img/InspectorTool.jpg" style="height:50px;float:left;margin-right:8px;" /></p>
 <p>MakerVR provides a special <em>inspector</em> mode that lets you easily examine a
 model from all directions. To inspect a model, select it as the primary
 selection, and click on the Inspect Selection Tool to turn it on.  Another
@@ -1505,7 +1510,7 @@ rules:</p>
           
             <hr>
             <p>
-            <small>Copyright &copy; 2020 Paul S. Strauss</small><br>
+            <small>Copyright &copy; 2020-2021 Paul S. Strauss</small><br>
             
             <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
             </p>
@@ -1529,8 +1534,35 @@ rules:</p>
     <script src="../js/base.js"></script>
     <script src="../js/versions.js"></script>
     <script src="../js/version-selector.js"></script>
+    <script src="../search/main.js"></script>
 
-    <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

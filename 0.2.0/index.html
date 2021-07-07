@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Paul S. Strauss">
+    <link rel="canonical" href="https://pss959.github.io/MakerVR-dist/">
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    
+    <title>Home - MakerVR</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="css/base.min.css" rel="stylesheet">
+    <link href="css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/version-selector.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body class="homepage" >
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href=".">MakerVR</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li class="active">
+                        <a href=".">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="UserGuide/">User Guide</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="CheatSheet/">Cheat Sheet</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="ReleaseNotes/">Release Notes</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a rel="prev" >
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="UserGuide/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/pss959/MakerVR/edit/master/MakerVR/PublicDoc/docs/README.md"><i class="fab fa-github"></i> Edit on GitHub</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#installing-and-running-makervr">Installing and Running MakerVR</a></li>
+        <li class="first-level "><a href="#vr-setup">VR Setup</a></li>
+            <li class="second-level"><a href="#htc-vive">HTC Vive</a></li>
+                
+            <li class="second-level"><a href="#oculus-quest-2-windows-only">Oculus Quest 2 (Windows Only)</a></li>
+                
+        <li class="first-level "><a href="#feedback">Feedback</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<!--
+Note that the cinder theme has a maximum of 3 levels for its table of
+contents. Instead of using the first level (h1) for the title, create a title
+div.
+-->
+
+<div class="title">Welcome to MakerVR</div>
+
+<p>&nbsp;</p>
+<p><img alt="MakerVR Logo" src="img/logo.jpg" style="height:256px;float:right" /></p>
+<p>MakerVR is a VR-enabled application for creating 3D-printable models.
+"VR-enabled" means that it can be used in VR, but also works in a standard
+mouse+keyboard configuration. In fact, it can also be used in VR without the
+headset on. You can use any combination of VR controllers, mouse, and keyboard
+in that mode.</p>
+<p>Models may be saved as STL files that can then be sent to a 3D printer.</p>
+<p>MakerVR is available for Windows and Linux. There is also a Mac version, but it
+may or not work in VR due to the <a href="https://store.steampowered.com/news/app/250820/view/2216278054495230717">lack of official SteamVR
+support</a>;
+I was unable to get SteamVR to display on the HTC Vive from a Macbook, but that
+might be due to specific hardware limitations. There is also <a href="https://docs.unity3d.com/Manual/Metal.html">some missing
+shader support</a> which means that it
+is not possible to display polygonal edges on models.</p>
+<section class="section1"><h1 id="installing-and-running-makervr">Installing and Running MakerVR</h1>
+<p>The application is available as Zip files in the <a href="https://github.com/pss959/MakerVR-dist">MakerVR distribution GitHub
+repository</a>. Download the Zip file for
+your operating system, extract it anywhere, and execute the <code>MakerVR</code>
+executable file in the resulting directory.</p>
+<p>MakerVR is pretty intuitive once you get to know a few things. You could try
+using it right away without any guidance, but you'd probably be better off
+taking a look at the <a href="UserGuide/">User Guide</a> first.</p>
+</section><section class="section1"><h1 id="vr-setup">VR Setup</h1>
+<p>MakerVR has been tested only with the <a href="https://www.vive.com/">HTC Vive</a> and
+<a href="https://www.oculus.com/quest-2/">Oculus Quest 2</a>. It may work with other
+devices as well. (I can't tell because I don't have them.)</p>
+<p>If you are running MakerVR on Windows without any VR device connected, it will
+attempt to open SteamVR anyway, causing an error window to appear. You can just
+ignore it.</p>
+</section><section class="section2"><h2 id="htc-vive">HTC Vive</h2>
+<p>The Vive needs to be connected to your computer (HDMI and USB). On Linux, you
+will probably need to start SteamVR first before running MakerVR with the Vive
+attached. I find it easiest to use MakerVR while in a comfortable seated
+position, so set up your Vive room accordingly if that's what you want.</p>
+</section><section class="section2"><h2 id="oculus-quest-2-windows-only">Oculus Quest 2 (Windows Only)</h2>
+<ul>
+<li>Connect the Quest to a USB 3 port.</li>
+<li>Enable Oculus Link on the Quest.</li>
+<li>Make sure the Oculus app is open.</li>
+<li>Run MakerVR. Things should work properly.</li>
+</ul>
+</section><section class="section1"><h1 id="feedback">Feedback</h1>
+<p>Please use the <a href="https://github.com/pss959/MakerVR-dist">GitHub
+repository</a> to report any issues.</p>
+</section></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Copyright &copy; 2020-2021 Paul S. Strauss</small><br>
+            
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "."</script>
+    
+    <script src="js/base.js"></script>
+    <script src="js/versions.js"></script>
+    <script src="js/version-selector.js"></script>
+    <script src="search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>
+
+<!--
+MkDocs version : 1.2.1
+Build Date UTC : 2021-07-07 00:15:18.967527+00:00
+-->

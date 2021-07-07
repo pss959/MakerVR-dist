@@ -1,5 +1,0 @@
-/* Make the table of contents scrollable  */
-.bs-sidebar {
-  overflow-y: auto;
-  max-height: 100%;
-}
